@@ -1,0 +1,80 @@
+<div class="z-3 position-fixed">
+  <div class="row">
+      <div class="p-4" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" 
+      (mouseenter)="toggleCollapse()" (click)="toggleCollapse()">
+      <div class="col">
+        <div class="container">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
+        </div>
+      </div>
+    </div>
+  </div>  
+</div>
+<div class="col">
+
+<div class="collapse collapse-horizontal z-2" style="transition: width 0.5s ease-in-out;position: fixed;" id="collapseWidthExample">
+<div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark pt-5"
+  style="height: 100vh; width: 60vh; overflow-y: auto; margin-left: -20px;">
+  <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+    <svg class="bi me-2" width="40" height="32">
+      <use xlink:href="#bootstrap" />
+    </svg>
+    <span class="fs-4">Hotel Management System</span>
+  </a>
+  <hr>
+  <ul class="nav nav-pills flex-column mb-auto">
+    <li class="nav-item">
+      <a class="{{isHomeActive}} nav-link text-white" [routerLink]="['home']" (click)="navHomeBtnActive()">
+        <svg class="bi me-2" width="16" height="16">
+          <use xlink:href="#home" />
+        </svg>
+        Home
+      </a>
+    </li>
+    <li>
+      <a class="{{isBillingActive}} nav-link text-white" [routerLink]="['billing']" (click)="navBillingBtnActive()">
+        <svg class="bi me-2" width="16" height="16">
+          <use xlink:href="#speedometer2" />
+        </svg>
+        Billings
+      </a>
+    </li>
+    <li>
+      <a class="{{isReportActive}} nav-link text-white" [routerLink]="['report']" (click)="navReportBtnActive()">
+        <svg class="bi me-2" width="16" height="16">
+          <use xlink:href="#table" />
+        </svg>
+        feedbacks
+      </a>
+    </li>
+    <li>
+      <a class="{{isBookingActive}} nav-link text-white" [routerLink]="['booking']" (click)="navBookingBtnActive()">
+        <svg class="bi me-2" width="16" height="16">
+          <use xlink:href="#grid" />
+        </svg>
+        Bookings
+      </a>
+    </li>
+    <li>
+      <a class="{{isRoomActive}} nav-link text-white" [routerLink]="['booking']" (click)="navRoomBtnActive()">
+        <svg class="bi me-2" width="16" height="16">
+          <use xlink:href="#grid" />
+        </svg>
+        Room
+      </a>
+    </li>
+    <li>
+      <a class="nav-link {{isCustomerActive}} text-white" [routerLink]="['customer']" (click)="navCustomerBtnActive()">
+        <svg class="bi me-2" width="16" height="16">
+          <use xlink:href="#people-circle" />
+        </svg>
+        Customer
+      </a>
+    </li>
+  </ul>
+  <hr>
+</div>
+</div>
+</div>

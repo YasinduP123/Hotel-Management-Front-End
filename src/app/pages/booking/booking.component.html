@@ -1,0 +1,215 @@
+<!-- <div class="container-fluid" style="z-index: -1;position: static;">
+    <table class="table table-dark mt-3">
+      <thead>
+        <tr>
+          <th scope="col">Booking ID</th>
+          <th scope="col">Booking Date</th>
+          <th scope="col">Check In Date</th>
+          <th scope="col">Check Out Date</th>
+          <th scope="col">Customer Id</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let booking of bookingInfo ">
+          <th scope="row">{{booking.bookingId}}</th>
+          <td>{{booking.bookingDate}}</td>
+          <td>{{booking.checkInDate}}</td>
+          <td>{{booking.checkOutDate}}</td>
+          <td>{{booking.id}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div> -->
+
+
+  <div class="container"  >
+    <div class="row">
+      <div class="col">
+
+        <!-- <div class="col-lg-6 col-md-4 col-sm-12 mt-2" style="margin: 0 auto;">
+          <div class="card bg-dark shadow-sm border-danger">
+            <img
+              src="https://www.usatoday.com/gcdn/-mm-/05b227ad5b8ad4e9dcb53af4f31d7fbdb7fa901b/c=0-64-2119-1259/local/-/media/USATODAY/USATODAY/2014/08/13/1407953244000-177513283.jpg?width=660&height=373&fit=crop&format=pjpg&auto=webp"
+              height="300px" style="border-radius: 8px;" alt="sasd" srcset="">
+            <div class="card-body text-white">
+              <p class="card-text" id="searchBookingDate"> <b>Booking Date : </b>
+                {{searchedBooking.bookingDate}}</p>
+              <p class="card-text" id="searchCheckInDate" > <b>Check In Date : </b>
+                {{searchedBooking.checkInDate}}</p>
+              <p class="card-text" id="searchCheckOutDate" > <b>Check Out Date : </b>
+                {{searchedBooking.checkOutDate}}</p>
+              <p class="card-text" id="searchName" > <b>Customer Name : </b>
+                {{searchedBooking.customer.name}}</p>
+              <p class="card-text" id="searchId" > <b>Customer ID : </b> {{searchedBooking.customer.id}}
+              </p>
+              <div class="d-flex justify-content-between align-items-center">
+              </div>
+            </div>
+          </div>
+        </div> -->
+        <div class="col-lg-3 col-md-4 col-sm-12 mt-2">
+          <div class="card bg-dark border-danger shadow-lg">
+            <img
+              src="https://www.usatoday.com/gcdn/-mm-/05b227ad5b8ad4e9dcb53af4f31d7fbdb7fa901b/c=0-64-2119-1259/local/-/media/USATODAY/USATODAY/2014/08/13/1407953244000-177513283.jpg?width=660&height=373&fit=crop&format=pjpg&auto=webp"
+              alt="Booking Image" style="border-radius: 8px;" class="img-fluid">
+            <div class="card-body text-white">
+            <p class="card-text"><b>Booking ID :</b> {{searchedBooking?.bookingId}}</p>
+            <p class="card-text"><b>Booking Date :</b> {{searchedBooking?.bookingDate}}</p>
+              <p class="card-text"><b>Check In Date :</b> {{searchedBooking?.checkInDate}}</p>
+              <p class="card-text"><b>Check Out Date :</b> {{searchedBooking?.checkOutDate}}</p>
+              <p class="card-text"><b>Customer Name :</b> {{searchedBooking?.customer.name}}</p>
+              <p class="card-text"><b>Customer ID :</b> {{searchedBooking?.customer?.id}}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <!-- Example buttons -->
+                  <button class="btn btn-sm btn-primary">Edit</button>
+                  <button class="btn btn-sm btn-danger" (click)="btnDeleteOnAction(searchedBooking)">Delete</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container mt-3">
+  <div class="row p-2" style="background-color: rgba(0, 0, 0, 0.519);border-radius: 1%;">
+    <div class="col">
+      <div class="card card-body bg-dark m-2">
+        <nav class="navbar bg-dark">
+          <div class="container-fluid">
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" #inpBookingId type="search" placeholder="Search By ID"
+                aria-label="Search">
+              <button class="btn btn-outline-success" (click)="searchByIdOnAction(inpBookingId.value)"
+                type="button">Search</button>
+            </form>
+          </div>
+        </nav>
+        <div class="col">
+          <div class="form-group mt-3">
+            <div class="row">
+              <div class="col">
+
+                <label for="colFormLabelSm" class="col-form-label col-form-label-sm text-white">Booking
+                  Date</label>
+                <div class="col-sm-10">
+                  <input type="date" #inpBookingDate class="form-control form-control-sm" id="colFormLabelSm"
+                    placeholder="Booking Date" [disabled]="false">
+                </div>
+
+              </div>
+              <div class="col">
+
+                <label for="colFormLabelSm" class=" col-form-label col-form-label-sm text-white">Customer ID</label>
+                <div class="col-sm-10">
+                  <input type="id" #inpCustomerId class="form-control form-control-sm" id="colFormLabelSm"
+                    placeholder="Customer ID" [disabled]="false">
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <div class="form-group mt-3">
+                <label for="colFormLabelSm" class=" col-form-label col-form-label-sm text-white">Check In
+                  Date</label>
+                <div class="col-sm-10">
+                  <input type="date" #inpCheckInDate class="form-control form-control-sm" id="colFormLabelSm"
+                    placeholder="Check In Date">
+                </div>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="form-group mt-3">
+                <label for="colFormLabelSm" class=" col-form-label col-form-label-sm text-white">Check Out
+                  Date</label>
+                <div class="col-sm-10">
+                  <input type="date" #inpCheckOutDate class="form-control form-control-sm" id="colFormLabelSm"
+                    placeholder="Check Out Date">
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="row mt-3">
+          <div class="col">
+            <button class="btn btn-outline-success"
+              (click)="addBookingOnAction( inpBookingDate.value , inpCustomerId.value , inpCheckInDate.value , inpCheckOutDate.value)"
+              type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add</button>
+          </div>
+          <div class="col">
+            <button class="btn btn-outline-secondary">Update</button>
+          </div>
+          <div class="col">
+            <button class="btn btn-outline-danger">Delete</button>
+          </div>
+          <div class="col">
+            <button class="btn btn-outline-info">Search</button>
+          </div>
+        </div>
+
+        <!--Add status popup -->
+
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+          aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog bg-black" style="border-radius: 15%;">
+            <div class="modal-content bg-black">
+              <div class="modal-header bg-black">
+                <h1 class="modal-title fs-5 text-white" id="staticBackdropLabel"></h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body bg-black text-white">
+                Booking Saved Successfully...!
+              </div>
+              <div class="modal-footer bg-black text-white">
+                <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- all bookings -->
+
+    </div>
+    <div class="row">
+      <div class="col-lg-3 col-md-4 col-sm-12 mt-2" *ngFor="let booking of bookingInfo ">
+        <div class="card bg-dark border-danger shadow-lg">
+          <img
+            src="https://www.usatoday.com/gcdn/-mm-/05b227ad5b8ad4e9dcb53af4f31d7fbdb7fa901b/c=0-64-2119-1259/local/-/media/USATODAY/USATODAY/2014/08/13/1407953244000-177513283.jpg?width=660&height=373&fit=crop&format=pjpg&auto=webp"
+            alt="sasd" style="border-radius: 8px;" srcset="">
+          <div class="card-body text-white">
+            <p class="card-text" id="bookingDate" #bookingIdRef> <b>Booking ID : </b> {{booking.bookingId}}</p>
+            <p class="card-text" id="bookingDate" #bookingDateRef> <b>Booking Date : </b> {{booking.bookingDate}}</p>
+            <p class="card-text" id="checkInDate" #checkInDateRef> <b>Check In Date : </b> {{booking.checkInDate}}</p>
+            <p class="card-text" id="checkOutDate" #checkOutDateRef> <b>Check Out Date : </b> {{booking.checkOutDate}}
+            </p>
+            <p class="card-text" id="name" #nameRef> <b>Customer Name : </b> {{booking.customer.name}}</p>
+            <p class="card-text" id="id" #idRef> <b>Customer ID : </b> {{booking.customer.id}}</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<br>
+
+<!-- <div class="mb-3">
+  <label for="formFileMultiple" class="form-label">Multiple files input example</label>
+  <input class="form-control" #uploadedImage type="file" id="formFileMultiple"  multiple>
+  <button class="btn btn-primary" (click)="getImage(uploadedImage.value)">Submit</button>
+</div> -->

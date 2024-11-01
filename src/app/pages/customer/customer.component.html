@@ -1,0 +1,28 @@
+<div class="container-fluid" style="z-index: -1;position: static;height: 100vh;">
+  <table class="table table-dark mt-3">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">NIC</th>
+        <th scope="col">Address</th>
+        <th scope="col">Number</th>
+        <th scope="col">Email</th>
+        <th scope="col">DOB</th>
+        <th scope="col">Gender</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor=" let customer of customers ">
+        <th scope="row">{{customer.id}}</th>
+        <td>{{customer.name}}</td>
+        <td>{{customer.nic}}</td>
+        <td>{{customer.address}}</td>
+        <td>{{customer.contactNumber}}</td>
+        <td>{{customer.email}}</td>
+        <td>{{customer.dob}}</td>
+        <td>{{customer.gender}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
