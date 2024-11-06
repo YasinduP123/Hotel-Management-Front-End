@@ -1,76 +1,95 @@
 <div class="z-3 position-fixed">
   <div class="row">
-      <div class="p-4" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" 
-      (mouseenter)="toggleCollapse()" (click)="toggleCollapse()">
-      <div class="col">
-        <div class="container">
-          <div class="bar1"></div>
-          <div class="bar2"></div>
-          <div class="bar3"></div>
-        </div>
-      </div>
-    </div>
+      <div class="p-4" id="page-content-wrapper" style="overflow-x: hidden;" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" 
+      (mouseenter)="toggleCollapse(isCollapsed)">
+        <button #hamburger type="button" class="hamburger animated fadeInLeft is-closed">
+          <span class="hamb-top bg-white"></span>
+          <span class="hamb-middle bg-white"></span>
+          <span class="hamb-bottom bg-white"></span>
+        </button>
   </div>  
 </div>
-<div class="col">
 
+<div class="col" style="margin-top: -6.6vh; height: auto;">
 <div class="collapse collapse-horizontal z-2" style="transition: width 0.5s ease-in-out;position: fixed;" id="collapseWidthExample">
 <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark pt-5"
-  style="height: 100vh; width: 60vh; overflow-y: auto; margin-left: -20px;">
+  style="height: 100vh; width: 40vh; overflow-y: auto; margin-left: -20px;">
   <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
     <svg class="bi me-2" width="40" height="32">
       <use xlink:href="#bootstrap" />
     </svg>
-    <span class="fs-4">Hotel Management System</span>
+    <!-- <span class="fs-4 text-xl-center">Hotel Management System</span> -->
   </a>
   <hr>
-  <ul class="nav nav-pills flex-column mb-auto">
+  <ul class="nav nav-pills flex-column mb-auto" style="font-size: larger;">
     <li class="nav-item">
-      <a class="{{isHomeActive}} nav-link text-white" [routerLink]="['home']" (click)="navHomeBtnActive()">
-        <svg class="bi me-2" width="16" height="16">
-          <use xlink:href="#home" />
-        </svg>
+      <a class="{{isHomeActive}}  nav-link text-white" [routerLink]="['']" (click)="navHomeBtnActive()">
+        <i class="mx-3 mt-3 fas fa-house-chimney-user">
+          <svg class="bi me-2" width="16" height="16">
+            <use xlink:href="#home" />
+          </svg>
+        </i>
         Home
       </a>
     </li>
     <li>
       <a class="{{isBillingActive}} nav-link text-white" [routerLink]="['billing']" (click)="navBillingBtnActive()">
-        <svg class="bi me-2" width="16" height="16">
-          <use xlink:href="#speedometer2" />
-        </svg>
+        <i class="mx-3 mt-3  fas fa-receipt">
+          <svg class="bi me-2" width="16" height="16">
+            <use xlink:href="#speedometer2" />
+          </svg>
+        </i>
         Billings
       </a>
     </li>
     <li>
-      <a class="{{isReportActive}} nav-link text-white" [routerLink]="['report']" (click)="navReportBtnActive()">
-        <svg class="bi me-2" width="16" height="16">
-          <use xlink:href="#table" />
-        </svg>
+      <a class="{{isComplainActive}} nav-link text-white" [routerLink]="['complain']" (click)="navComplainBtnActive()">
+        <i class="mx-3 mt-3 fas fa-face-smile-beam">
+          <svg class="bi me-2" width="16" height="16">
+            <use xlink:href="#speedometer2" />
+          </svg>
+        </i>
         feedbacks
       </a>
     </li>
     <li>
       <a class="{{isBookingActive}} nav-link text-white" [routerLink]="['booking']" (click)="navBookingBtnActive()">
-        <svg class="bi me-2" width="16" height="16">
-          <use xlink:href="#grid" />
-        </svg>
+        <i class="mx-3 mt-3 fa fa-calendar-days">
+          <svg class="bi me-2" width="16" height="16">
+            <use xlink:href="#speedometer2" />
+          </svg>
+        </i>
         Bookings
       </a>
     </li>
     <li>
-      <a class="{{isRoomActive}} nav-link text-white" [routerLink]="['booking']" (click)="navRoomBtnActive()">
-        <svg class="bi me-2" width="16" height="16">
-          <use xlink:href="#grid" />
-        </svg>
+      <a class="{{isRoomActive}} nav-link text-white" [routerLink]="['room']" (click)="navRoomBtnActive()">
+        <i class="mx-3 mt-3  fas fa-bed">
+          <svg class="bi me-2" width="16" height="16">
+            <use xlink:href="#speedometer2" />
+          </svg>
+        </i>
         Room
       </a>
     </li>
     <li>
       <a class="nav-link {{isCustomerActive}} text-white" [routerLink]="['customer']" (click)="navCustomerBtnActive()">
-        <svg class="bi me-2" width="16" height="16">
-          <use xlink:href="#people-circle" />
-        </svg>
+        <i class="mx-3 mt-3  fas fa-users">
+          <svg class="bi me-2" width="16" height="16">
+            <use xlink:href="#speedometer2" />
+          </svg>
+        </i>
         Customer
+      </a>
+    </li>
+    <li>
+      <a class="nav-link {{isReportActive}} text-white" [routerLink]="['report']" (click)="navReportBtnActive()">
+        <i class="mx-3 mt-3  fa fa-chart-pie">
+          <svg class="bi me-2" width="16" height="16">
+            <use xlink:href="#speedometer2" />
+          </svg>
+        </i>
+        Report
       </a>
     </li>
   </ul>
@@ -78,3 +97,80 @@
 </div>
 </div>
 </div>
+<!-- <div id="wrapper">
+  <div #overlay class="overlay"></div> -->
+  
+  <!-- Sidebar -->
+  <!-- <nav class="navbar navbar-inverse fixed-top" id="sidebar-wrapper" role="navigation">
+    <ul class="nav sidebar-nav" style="list-style-type: none;">
+      <div class="sidebar-header">
+        <div class="sidebar-brand text-white ">
+          Hotel Dashboard
+        </div>
+      </div>
+      <hr>
+      <br>
+      <br>
+        <li class="nav-item">
+          <a class="{{isHomeActive}} active nav-link text-white" [routerLink]="['']" (click)="navHomeBtnActive()">
+            <svg class="bi me-2" width="16" height="16">
+              <use xlink:href="#home" />
+            </svg>
+            Home
+          </a>
+        </li>
+        <li>  
+      <li>
+        <a class="{{isBillingActive}} nav-link text-white" [routerLink]="['billing']" (click)="navBillingBtnActive()">
+          <svg class="bi me-2" width="16" height="16">
+            <use xlink:href="#speedometer2" />
+          </svg>
+          Billings
+        </a>
+      </li>
+      <li>
+        <a class="{{isComplainActive}} nav-link text-white" [routerLink]="['complain']" (click)="navComplainBtnActive()">
+          <svg class="bi me-2" width="16" height="16">
+            <use xlink:href="#table" />
+          </svg>
+          feedbacks
+        </a>
+      </li>
+      <li>
+        <a class="{{isBookingActive}} nav-link text-white" [routerLink]="['booking']" (click)="navBookingBtnActive()">
+          <svg class="bi me-2" width="16" height="16">
+            <use xlink:href="#grid" />
+          </svg>
+          Bookings
+        </a>
+      </li>
+      <li>
+        <a class="{{isRoomActive}} nav-link text-white" [routerLink]="['room']" (click)="navRoomBtnActive()">
+          <svg class="bi me-2" width="16" height="16">
+            <use xlink:href="#grid" />
+          </svg>
+          Room
+        </a>
+      </li>
+      <li>
+        <a class="nav-link {{isCustomerActive}} text-white" [routerLink]="['customer']" (click)="navCustomerBtnActive()">
+          <svg class="bi me-2" width="16" height="16">
+            <use xlink:href="#people-circle" />
+          </svg>
+          Customer
+        </a>
+      </li>
+
+    </ul>
+  </nav> -->
+
+  <!-- Page Content -->
+   <!-- <div id="page-content-wrapper" style="overflow-x: hidden;">
+    <button #hamburger type="button" class="hamburger animated fadeInLeft is-closed">
+      <span class="hamb-top bg-white"></span>
+      <span class="hamb-middle bg-white"></span>
+      <span class="hamb-bottom bg-white"></span>
+    </button> -->
+  <!--</div>
+</div> -->
+    

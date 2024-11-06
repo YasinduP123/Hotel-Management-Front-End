@@ -5,8 +5,10 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './complain.component.html',
-  styleUrl: './complain.component.css'
+  styleUrls: ['./complain.component.css']
 })
-export class ComplainComponent {
+export class ComplainComponent{
+
+  
 
 }

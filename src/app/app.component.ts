@@ -5,6 +5,9 @@ import { CustomerComponent } from "./pages/customer/customer.component";
 import { FooterComponent } from "./footer/footer.component";
 import { HomeComponent } from "./pages/home/home.component";
 import { LoginComponent } from "./login/login.component";
+import AOS from 'aos';
+
+
 
 @Component({
   selector: 'app-root',
@@ -16,4 +19,10 @@ import { LoginComponent } from "./login/login.component";
 export class AppComponent {
   
   title = 'hotel-front-end';
+  ngOnInit() {
+    AOS.init({
+      duration: 1000, // Duration of the animation in milliseconds
+      once: true      // Animation will happen only once
+    });
+  }
 }

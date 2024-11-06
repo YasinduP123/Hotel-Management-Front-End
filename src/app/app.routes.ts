@@ -7,6 +7,9 @@ import { ReportComponent } from './pages/report/report.component';
 import { CommonComponent } from './common/common.component';
 import { AppComponent } from './app.component';
 import { NgModule } from '@angular/core';
+import { ComplainComponent } from './pages/complain/complain.component';
+import { RoomComponent } from './pages/room/room.component';
+import { LoginComponent } from './login/login.component';
 
 export const routes: Routes = [
     {
@@ -14,7 +17,7 @@ export const routes: Routes = [
         component : CustomerComponent
     },
     {
-        path : "home",
+        path : "",
         component : HomeComponent
     },
     {
@@ -22,8 +25,8 @@ export const routes: Routes = [
         component : BillingComponent
     },
     {
-        path : "report",
-        component : ReportComponent
+        path : "complain",
+        component : ComplainComponent
     },
     {
         path : "booking",
@@ -33,10 +36,17 @@ export const routes: Routes = [
         path : "dashBoard",
         component : AppComponent
     },
-    {   
-        path: '',
-        redirectTo: '/login',
-        pathMatch: 'full' 
+    {
+        path : "room",
+        component: RoomComponent
+    },
+    {
+        path : "a",
+        component: LoginComponent
+    },
+    {
+        path : "report",
+        component : ReportComponent
     }
 ];
 
